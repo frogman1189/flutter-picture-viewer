@@ -7,6 +7,7 @@ view and grid view for viewing files, specifically pictures.
 
 1. flutter upgrade
 2. flutter create flutter\_photo\_viewer
+3. flutter run -d chrome
 
 
 ## Getting Started

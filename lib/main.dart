@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'Photoviewer.dart';
+import 'UrlForm.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Image Temp Bookmarker',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -51,6 +53,30 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  List<String> list;
+
+  @override
+  void initState() {
+    super.initState();
+    
+    list = new List();
+    list.add('https://3.bp.blogspot.com/-Dozqrh0Fkkk/TXC2qqQy39I/AAAAAAAADnU/nESieUfOU9Y/s1600/ace_of_spades.png');
+    list.add('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg');
+    list.add('https://image.shutterstock.com/image-vector/back-side-design-playing-cards-600w-629306936.jpg');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_King_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_Queen_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_Jack_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_10_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_9_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_8_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_7_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_6_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_5_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_4_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_3_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_2_of_spades.png');
+    list.add('https://publicdomainvectors.org/photos/nicubunu_Ornamental_deck_Ace_of_spades.png');
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -60,6 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _updatePhotoList(String value) {
+    setState(() {
+        list.add(value);
     });
   }
 
@@ -80,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: Photoviewer(urlList: list)/*Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -105,10 +137,19 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
-        ),
+        ),*/
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed:() {
+          showDialog(
+          context: context,
+          child: new AlertDialog(
+            title: new Text("Input a Url to be added:"),
+            content: new UrlForm(onChanged: _updatePhotoList),
+          )
+        );
+      },
+        /*_incrementCounter,*/
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
