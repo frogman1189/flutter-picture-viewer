@@ -8,6 +8,10 @@ view and grid view for viewing files, specifically pictures.
 1. flutter upgrade
 2. flutter create flutter\_photo\_viewer
 3. flutter run -d chrome
+... Tutorial didn't really get completed.
+
+Note when compiling for android need to allow internet permission
+https://stackoverflow.com/questions/54955789/flutter-image-network-not-working-on-release-apk
 
 
 ## Getting Started
