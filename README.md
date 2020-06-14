@@ -7,7 +7,7 @@ view and grid view for viewing files, specifically pictures.
 
 1. run: "flutter create flutter\_photo\_viewer"
 2. copy lib into flutter\_photo\_viewer/
-3. If deploying on android add <uses-permission android:name="android.permission.INTERNET" /> to android/app/src/main/AndroidManifest.xml
+3. If deploying on android add "\<uses-permission android:name="android.permission.INTERNET" /\>" to android/app/src/main/AndroidManifest.xml
 4. run "flutter run _NAME\_OF\_PLATFORM_"
 
 # Tutorial
